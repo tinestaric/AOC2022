@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AOC2022",
+    "\\AOC2022\\Days",
+    "\\AOC2022\\Days\\Day01",
+    "\\AOC2022\\Days\\Day02",
+    "\\AOC2022\\Days\\Day03"
   ],
-  "SelectedNode": "\\C:\\Users\\tine2\\OneDrive\\Dokumenti\\Repo\\Research\\AOC2022",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
