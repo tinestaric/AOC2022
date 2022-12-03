@@ -15,15 +15,19 @@ class DaillyChallenge
     {
         IDay day = new DayFactory().GetDaillyChallenge(0);
 
+        Console.WriteLine($"Solving challenge for: {day.GetType().Name}");
+        Console.WriteLine("");
+        
         ImportData(day.GetType().Name);
 
         if ((testLines == null) || (lines == null))
             throw new Exception("Import data missing");
-
+                
         Console.WriteLine("Example data");
         day.FirstChallenge(testLines);
         day.SecondChallenge(testLines);
 
+        Console.WriteLine("");
         Console.WriteLine("Input data");
         day.FirstChallenge(lines);
         day.SecondChallenge(lines);
