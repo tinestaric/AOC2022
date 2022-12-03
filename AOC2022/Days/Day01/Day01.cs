@@ -1,24 +1,8 @@
 ﻿using System;
 
-public static class Day01
+public class Day01 : IDay
 {
-    public static void Solve()
-    {
-        string example = "../../..//Days/Day01/Example.txt";
-        string input = "../../..//Days/Day01/input.txt";
-        string[] testLines = File.ReadAllLines(example);
-        string[] lines = File.ReadAllLines(input);
-
-        Console.WriteLine("Example data");
-        GetElfWithMaxCalories(testLines);
-        GetTop3ElfsWithMaxCalories(testLines);
-
-        Console.WriteLine("Input data");
-        GetElfWithMaxCalories(lines);
-        GetTop3ElfsWithMaxCalories(lines);
-    }
-
-    private static void GetElfWithMaxCalories(string[] lines)
+    public void FirstChallenge(string[] lines)
     {
         long maxCalories = 0, elfCalories = 0;
         foreach (string line in lines)
@@ -39,7 +23,7 @@ public static class Day01
         Console.WriteLine(maxCalories);
     }
 
-    private static void GetTop3ElfsWithMaxCalories(string[] lines)
+    public void SecondChallenge(string[] lines)
     {
         long[] maxCalories = new long[3] { 0, 0, 0 };
         long elfCalories = 0;

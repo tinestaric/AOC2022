@@ -1,24 +1,8 @@
 ﻿using System;
 
-public static class Day02
+public class Day02 : IDay
 {
-    public static void Solve()
-    {
-        string example = "../../..//Days/Day02/Example.txt";
-        string input = "../../..//Days/Day02/input.txt";
-        string[] testLines = File.ReadAllLines(example);
-        string[] lines = File.ReadAllLines(input);
-
-        Console.WriteLine("Example data");
-        GetTotalScore(testLines);
-        GetTotalNewScore(testLines);
-
-        Console.WriteLine("Input data");
-        GetTotalScore(lines);
-        GetTotalNewScore(lines);
-    }
-
-    private static void GetTotalScore(string[] lines)
+    public void FirstChallenge(string[] lines)
     {
         int totalScore = 0;
 
@@ -41,7 +25,7 @@ public static class Day02
         Console.WriteLine(totalScore);
     }
 
-    private static void GetTotalNewScore(string[] lines)
+    public void SecondChallenge(string[] lines)
     {
         int elfSelection, totalScore = 0;
 

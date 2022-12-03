@@ -1,24 +1,8 @@
 ﻿using System;
 
-public static class Day03
+public class Day03: IDay
 {
-    public static void Solve()
-    {
-        string example = "../../..//Days/Day03/Example.txt";
-        string input = "../../..//Days/Day03/input.txt";
-        string[] testLines = File.ReadAllLines(example);
-        string[] lines = File.ReadAllLines(input);
-
-        Console.WriteLine("Example data");
-        GetDuplicatePriority(testLines);
-        GetElfBadgePriority(testLines);
-
-        Console.WriteLine("Input data");
-        GetDuplicatePriority(lines);
-        GetElfBadgePriority(lines);
-    }
-
-    private static void GetDuplicatePriority(string[] lines)
+    public void FirstChallenge(string[] lines)
     {
         int totalPriority = 0;
         foreach (string line in lines)
@@ -68,7 +52,7 @@ public static class Day03
         return duplicatePriority;
     }
 
-    private static void GetElfBadgePriority(string[] lines)
+    public void SecondChallenge(string[] lines)
     {
         int totalPriority = 0, counter = 0;
         HashSet<char> duplicates = new HashSet<char>();
