@@ -11,9 +11,9 @@ public class Day04 : IDay
             string[] firstAssignment = assignments[0].Split('-');
             string[] secondAssignment = assignments[1].Split('-');
 
-            if (((Int32.Parse(firstAssignment[0]) >= Int32.Parse(secondAssignment[0])) && (Int32.Parse(firstAssignment[0]) <= Int32.Parse(secondAssignment[1]))) 
+            if (((Int32.Parse(firstAssignment[0]) >= Int32.Parse(secondAssignment[0])) && (Int32.Parse(firstAssignment[1]) <= Int32.Parse(secondAssignment[1]))) 
                 || 
-                (Int32.Parse(secondAssignment[0]) >= Int32.Parse(firstAssignment[0]) && Int32.Parse(secondAssignment[0]) <= Int32.Parse(firstAssignment[1])))
+                (Int32.Parse(secondAssignment[0]) >= Int32.Parse(firstAssignment[0]) && Int32.Parse(secondAssignment[1]) <= Int32.Parse(firstAssignment[1])))
                 redundantAssignments++;
         }
 
@@ -22,32 +22,19 @@ public class Day04 : IDay
 
     public void SecondChallenge(string[] lines)
     {
-        return;
-        int totalPriority = 0, counter = 0;
-        HashSet<char> duplicates = new HashSet<char>();
-
+        int redundantAssignments = 0;
         foreach (string line in lines)
         {
-            counter++;
-            HashSet<char> subDuplicates = new HashSet<char>();
+            string[] assignments = line.Split(',');
+            string[] firstAssignment = assignments[0].Split('-');
+            string[] secondAssignment = assignments[1].Split('-');
 
-            Boolean firstLine = duplicates.Count == 0;
-
-            foreach (char item in line)
-            {
-                if (firstLine)
-                    subDuplicates.Add(item);
-                else
-                {
-                    if (duplicates.Contains(item))
-                        subDuplicates.Add(item);
-                }
-            }
-
-            duplicates = new HashSet<char>(subDuplicates);
-
+            if (((Int32.Parse(firstAssignment[0]) >= Int32.Parse(secondAssignment[0])) && (Int32.Parse(firstAssignment[0]) <= Int32.Parse(secondAssignment[1])))
+                ||
+                (Int32.Parse(secondAssignment[0]) >= Int32.Parse(firstAssignment[0]) && Int32.Parse(secondAssignment[0]) <= Int32.Parse(firstAssignment[1])))
+                redundantAssignments++;
         }
 
-        Console.WriteLine(totalPriority);
+        Console.WriteLine(redundantAssignments);
     }
 }
