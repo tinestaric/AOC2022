@@ -46,7 +46,7 @@ public class Day05 : IDay
         containerSchema.TryGetValue(to, out var toContainerRow);
 
         for (int i = 0; i < noOfCrates; i++)
-        {
+        {            
             toContainerRow.Insert(0, fromContainerRow.First());
             fromContainerRow.RemoveAt(0);
         }
