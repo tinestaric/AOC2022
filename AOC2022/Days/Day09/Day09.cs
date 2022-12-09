@@ -96,8 +96,8 @@ public class Day09 : IDay
 
     public void SecondChallenge(string[] lines)
     {
-        const int KNOTS = 10;
-        (int X, int Y)[] tails = new (int X, int Y)[KNOTS];
+        const int knots = 10;
+        (int X, int Y)[] tails = new (int X, int Y)[knots];
         HashSet<(int X, int Y)> visited = new HashSet<(int X, int Y)>();
 
         foreach(string line in lines)
@@ -106,22 +106,9 @@ public class Day09 : IDay
             int move = int.Parse(cmd[1]);
             for (int j = 0; j < move; j++)
             {
-                switch (cmd[0])
-                {
-                    case "U":
-                        tails[0].Y -= 1;
-                        break;
-                    case "R":
-                        tails[0].X += 1;
-                        break;
-                    case "D":
-                        tails[0].Y += 1;
-                        break;
-                    case "L":
-                        tails[0].X -= 1;
-                        break;
-                }
-                for (int k = 1; k < KNOTS; k++)
+                tails[0] = MoveHead(tails[0], cmd[0]);
+
+                for (int k = 1; k < knots; k++)
                 {
                     if (Math.Abs(tails[k - 1].X - tails[k].X) > 1 || Math.Abs(tails[k - 1].Y - tails[k].Y) > 1)
                     {
@@ -130,7 +117,7 @@ public class Day09 : IDay
                     }
                 }
                 
-                visited.Add(tails[KNOTS - 1]);                
+                visited.Add(tails[knots - 1]);                
             }
         }
         
