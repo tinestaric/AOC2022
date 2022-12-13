@@ -33,6 +33,8 @@ class DayFactory
                 return new Day11();
             case 12:
                 return new Day12();
+            case 13:
+                return new Day13();
         }
 
         throw new Exception("Cannnot parse correct daily challenge.");
